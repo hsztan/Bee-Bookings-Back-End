@@ -1,4 +1,4 @@
-class BookingsController < ApplicationController
+class API::V1::BookingsController < ApplicationController
   before_action :set_booking, only: %i[show update destroy]
 
   # GET /bookings
