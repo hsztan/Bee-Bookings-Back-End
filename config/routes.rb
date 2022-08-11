@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
-      resources :users do
-        resources :bookings
-        resources :items
-      end
+      post "signup", to: "sessions#sign_up"
+      post "signin", to: "sessions#sign_in"
+      resources :bookings
+      resources :items
     end
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
