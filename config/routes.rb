@@ -4,7 +4,7 @@ Rails.application.routes.draw do
       post "signup", to: "sessions#sign_up"
       post "signin", to: "sessions#sign_in"
       resources :bookings, only: [:show, :create, :update, :destroy]
-      post "bookings/user", to: "bookings#user", as: "bookings"
+      post "bookings/user", to: "bookings#user"
       resources :items
     end
   end
