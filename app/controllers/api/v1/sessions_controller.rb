@@ -13,6 +13,17 @@ class Api::V1::SessionsController < ApplicationController
   end
 
   def sign_up
+    @user = User.new(username: user_params[:username])
+    
+    if @user.save
+      render json: {
+        user_id: @user.id,
+        username: @user.username
+      }
+    else
+      render json: { errors: @user.errors },
+        status: 400
+    end
   end
 
   private
