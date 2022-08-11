@@ -3,7 +3,8 @@ Rails.application.routes.draw do
     namespace :v1 do
       post "signup", to: "sessions#sign_up"
       post "signin", to: "sessions#sign_in"
-      resources :bookings
+      resources :bookings, only: [:show, :create, :update, :destroy]
+      post "bookings/user", to: "bookings#user", as: "bookings"
       resources :items
     end
   end

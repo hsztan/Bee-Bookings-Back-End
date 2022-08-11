@@ -8,6 +8,11 @@ class Api::V1::BookingsController < ApplicationController
     render json: @bookings
   end
 
+  def user
+    @bookings = Booking.where(user_id: params[:user_id])
+    render json: @bookings
+  end
+
   # GET /bookings/1
   def show
     render json: @booking
