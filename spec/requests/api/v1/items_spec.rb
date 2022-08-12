@@ -1,8 +1,11 @@
 require 'swagger_helper'
 
 RSpec.describe 'api/v1/items', type: :request do
-  @item = Item.create(name: "bee", image: "image_url", description: "It's a bee")
-  @id = @item.id
+  before do
+    @item = Item.create(name: "bee", image: "image_url", description: "It's a bee")
+    @id = @item.id
+  end
+
   path '/api/v1/items' do
 
     get('list items') do
@@ -58,16 +61,8 @@ RSpec.describe 'api/v1/items', type: :request do
     end
 
     delete('delete item') do
-      response(200, 'successful') do
+      response(204, 'successful') do
         let(:id) { @id }
-
-        # after do |example|
-        #   example.metadata[:response][:content] = {
-        #     'application/json' => {
-        #       example: JSON.parse(response.body, symbolize_names: true)
-        #     }
-        #   }
-        # end
         run_test!
       end
     end
