@@ -1,0 +1,166 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/api/v1/bookings":
+    post:
+      summary: create booking
+      tags:
+      - Bookings
+      parameters: []
+      responses:
+        '201':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: integer
+                item_id:
+                  type: integer
+                date:
+                  type: date
+                city:
+                  type: string
+              required:
+              - user_id
+              - item_id
+              - date
+              - city
+  "/api/v1/bookings/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show booking
+      responses:
+        '200':
+          description: successful
+    delete:
+      summary: delete booking
+      responses:
+        '204':
+          description: successful
+  "/api/v1/bookings/user":
+    post:
+      summary: user booking
+      tags:
+      - Bookings
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: integer
+              required:
+              - user_id
+  "/api/v1/items":
+    get:
+      summary: list items
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create item
+      tags:
+      - Items
+      parameters: []
+      responses:
+        '201':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                image:
+                  type: string
+                description:
+                  type: string
+              required:
+              - name
+              - image
+              - description
+  "/api/v1/items/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: integer
+    get:
+      summary: show item
+      responses:
+        '200':
+          description: successful
+    delete:
+      summary: delete item
+      responses:
+        '204':
+          description: successful
+  "/api/v1/signup":
+    post:
+      summary: sign_up session
+      tags:
+      - Users
+      parameters: []
+      responses:
+        '200':
+          description: successful
+        '401':
+          description: not found
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+              required:
+              - username
+  "/api/v1/signin":
+    post:
+      summary: sign_in session
+      tags:
+      - Users
+      parameters: []
+      responses:
+        '200':
+          description: successful
+        '404':
+          description: not found
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+              required:
+              - username
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: www.example.com

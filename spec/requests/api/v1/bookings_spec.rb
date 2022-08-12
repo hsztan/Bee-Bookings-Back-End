@@ -6,6 +6,8 @@ RSpec.describe 'api/v1/bookings', type: :request do
     @user_id = @user.id
     @item = Item.create(name: "MyItem", image: "MyImage", description: "This is my Item")
     @item_id = @item.id
+    @booking = Booking.create(date: '12/02/2021', city: 'Madrid', user_id: @user_id, item_id: @item_id)
+    @booking_id = @booking.id
   end
 
   path '/api/v1/bookings' do
@@ -36,30 +38,14 @@ RSpec.describe 'api/v1/bookings', type: :request do
 
     get('show booking') do
       response(200, 'successful') do
-        let(:id) { '123' }
-
-        after do |example|
-          example.metadata[:response][:content] = {
-            'application/json' => {
-              example: JSON.parse(response.body, symbolize_names: true)
-            }
-          }
-        end
+        let(:id) { @booking_id }
         run_test!
       end
     end
 
     delete('delete booking') do
-      response(200, 'successful') do
-        let(:id) { '123' }
-
-        after do |example|
-          example.metadata[:response][:content] = {
-            'application/json' => {
-              example: JSON.parse(response.body, symbolize_names: true)
-            }
-          }
-        end
+      response(204, 'successful') do
+        let(:id) { @booking_id }
         run_test!
       end
     end

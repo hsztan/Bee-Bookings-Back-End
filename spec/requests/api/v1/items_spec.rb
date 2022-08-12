@@ -30,7 +30,7 @@ RSpec.describe 'api/v1/items', type: :request do
         properties: {
           name: { type: :string },
           image: { type: :string },
-          description: { type: :text }
+          description: { type: :string }
         },
         required: ['name', 'image', 'description']
       }
