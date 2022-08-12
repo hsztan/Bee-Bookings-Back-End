@@ -5,10 +5,10 @@ class Api::V1::SessionsController < ApplicationController
       render json: {
         user_id: @user.id,
         username: @user.username
-      }
+      }, status: 200
     else
       render json: { error: 'User not found' },
-             status: 404
+             status: :not_found
     end
   end
 
@@ -19,10 +19,10 @@ class Api::V1::SessionsController < ApplicationController
       render json: {
         user_id: @user.id,
         username: @user.username
-      }
+      }, status: 200
     else
       render json: { errors: @user.errors },
-             status: 400
+             status: :unauthorized
     end
   end
 

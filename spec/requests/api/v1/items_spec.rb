@@ -32,7 +32,7 @@ RSpec.describe 'api/v1/items', type: :request do
           image: { type: :string },
           description: { type: :text }
         },
-        reqiured: ['name', 'image', 'description']
+        required: ['name', 'image', 'description']
       }
       response(201, 'successful') do
         let(:item) { { name: 'foo', image: 'bar', description: 'nix' } }
