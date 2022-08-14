@@ -2,16 +2,15 @@ require 'swagger_helper'
 
 RSpec.describe 'api/v1/bookings', type: :request do
   before do
-    @user = User.create(username: "Henry")
+    @user = User.create(username: 'Henry')
     @user_id = @user.id
-    @item = Item.create(name: "MyItem", image: "MyImage", description: "This is my Item")
+    @item = Item.create(name: 'MyItem', image: 'MyImage', description: 'This is my Item')
     @item_id = @item.id
     @booking = Booking.create(date: '12/02/2021', city: 'Madrid', user_id: @user_id, item_id: @item_id)
     @booking_id = @booking.id
   end
 
   path '/api/v1/bookings' do
-
     post('create booking') do
       tags 'Bookings'
       consumes 'application/json'
@@ -23,10 +22,10 @@ RSpec.describe 'api/v1/bookings', type: :request do
           date: { type: :date },
           city: { type: :string }
         },
-        required: ['user_id', 'item_id', 'date', 'city']
+        required: %w[user_id item_id date city]
       }
       response(201, 'successful') do
-        let(:booking) { {booking: {user_id: @user_id, item_id: @item_id, date: '12/02/2021', city: 'Tokyo'}} }
+        let(:booking) { { booking: { user_id: @user_id, item_id: @item_id, date: '12/02/2021', city: 'Tokyo' } } }
         run_test!
       end
     end
@@ -52,7 +51,6 @@ RSpec.describe 'api/v1/bookings', type: :request do
   end
 
   path '/api/v1/bookings/user' do
-
     post('user booking') do
       tags 'Bookings'
       consumes 'application/json'
@@ -64,7 +62,7 @@ RSpec.describe 'api/v1/bookings', type: :request do
         required: ['user_id']
       }
       response(200, 'successful') do
-        let(:booking) { {booking: {user_id: @user_id}} }
+        let(:booking) { { booking: { user_id: @user_id } } }
         run_test!
       end
     end

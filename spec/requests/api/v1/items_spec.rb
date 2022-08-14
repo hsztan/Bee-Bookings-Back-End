@@ -2,15 +2,13 @@ require 'swagger_helper'
 
 RSpec.describe 'api/v1/items', type: :request do
   before do
-    @item = Item.create(name: "bee", image: "image_url", description: "It's a bee")
+    @item = Item.create(name: 'bee', image: 'image_url', description: "It's a bee")
     @id = @item.id
   end
 
   path '/api/v1/items' do
-
     get('list items') do
       response(200, 'successful') do
-
         after do |example|
           example.metadata[:response][:content] = {
             'application/json' => {
@@ -32,7 +30,7 @@ RSpec.describe 'api/v1/items', type: :request do
           image: { type: :string },
           description: { type: :string }
         },
-        required: ['name', 'image', 'description']
+        required: %w[name image description]
       }
       response(201, 'successful') do
         let(:item) { { name: 'foo', image: 'bar', description: 'nix' } }
