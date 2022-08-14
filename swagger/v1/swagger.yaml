@@ -76,6 +76,8 @@ paths:
   "/api/v1/items":
     get:
       summary: list items
+      tags:
+      - Items
       responses:
         '200':
           description: successful
@@ -113,11 +115,15 @@ paths:
         type: integer
     get:
       summary: show item
+      tags:
+      - Items
       responses:
         '200':
           description: successful
     delete:
       summary: delete item
+      tags:
+      - Items
       responses:
         '204':
           description: successful

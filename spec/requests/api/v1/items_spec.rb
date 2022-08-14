@@ -8,6 +8,7 @@ RSpec.describe 'api/v1/items', type: :request do
 
   path '/api/v1/items' do
     get('list items') do
+      tags 'Items'
       response(200, 'successful') do
         after do |example|
           example.metadata[:response][:content] = {
@@ -44,6 +45,7 @@ RSpec.describe 'api/v1/items', type: :request do
     parameter name: 'id', in: :path, type: :integer, description: 'id'
 
     get('show item') do
+      tags 'Items'
       response(200, 'successful') do
         let(:id) { @id }
 
@@ -59,6 +61,7 @@ RSpec.describe 'api/v1/items', type: :request do
     end
 
     delete('delete item') do
+      tags 'Items'
       response(204, 'successful') do
         let(:id) { @id }
         run_test!
