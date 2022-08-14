@@ -53,7 +53,7 @@ RSpec.describe 'api/v1/bookings', type: :request do
   end
 
   path '/api/v1/bookings/user' do
-    post('get all user booking') do
+    post('get all user bookings') do
       tags 'Bookings'
       consumes 'application/json'
       parameter name: :booking, in: :body, schema: {
