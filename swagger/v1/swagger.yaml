@@ -42,17 +42,21 @@ paths:
         type: string
     get:
       summary: show booking
+      tags:
+      - Bookings
       responses:
         '200':
           description: successful
     delete:
       summary: delete booking
+      tags:
+      - Bookings
       responses:
         '204':
           description: successful
   "/api/v1/bookings/user":
     post:
-      summary: user booking
+      summary: get all user booking
       tags:
       - Bookings
       parameters: []
@@ -160,7 +164,7 @@ paths:
               required:
               - username
 servers:
-- url: https://{defaultHost}
+- url: http://{defaultHost}
   variables:
     defaultHost:
-      default: www.example.com
+      default: localhost:3000

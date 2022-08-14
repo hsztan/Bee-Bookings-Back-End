@@ -36,6 +36,7 @@ RSpec.describe 'api/v1/bookings', type: :request do
     parameter name: 'id', in: :path, type: :string, description: 'id'
 
     get('show booking') do
+      tags 'Bookings'
       response(200, 'successful') do
         let(:id) { @booking_id }
         run_test!
@@ -43,6 +44,7 @@ RSpec.describe 'api/v1/bookings', type: :request do
     end
 
     delete('delete booking') do
+      tags 'Bookings'
       response(204, 'successful') do
         let(:id) { @booking_id }
         run_test!
@@ -51,7 +53,7 @@ RSpec.describe 'api/v1/bookings', type: :request do
   end
 
   path '/api/v1/bookings/user' do
-    post('user booking') do
+    post('get all user booking') do
       tags 'Bookings'
       consumes 'application/json'
       parameter name: :booking, in: :body, schema: {
