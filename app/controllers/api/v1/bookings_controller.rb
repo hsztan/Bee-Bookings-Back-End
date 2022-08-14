@@ -8,6 +8,11 @@ class Api::V1::BookingsController < ApplicationController
     render json: @bookings
   end
 
+  def user
+    @bookings = Booking.where(user_id: booking_params[:user_id])
+    render json: @bookings
+  end
+
   # GET /bookings/1
   def show
     render json: @booking
@@ -47,6 +52,6 @@ class Api::V1::BookingsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def booking_params
-    params.require(:booking).permit(:date, :city)
+    params.require(:booking).permit(:date, :city, :user_id, :item_id)
   end
 end
