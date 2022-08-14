@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  root '/api-docs'
   mount Rswag::Ui::Engine => '/api-docs'
-  mount Rswag::Api::Engine => '/api-docs'
+  mount Rswag::Api::Engine => '/api-docs', as: :swagger
   namespace :api do
     namespace :v1 do
       post "signup", to: "sessions#sign_up"
@@ -11,6 +10,7 @@ Rails.application.routes.draw do
       resources :items, only: [:index, :show, :create, :destroy]
     end
   end
+  root to: "home#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
