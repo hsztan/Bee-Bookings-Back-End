@@ -1,7 +1,7 @@
 ---
 openapi: 3.0.1
 info:
-  title: API V1
+  title: "BeeStore \U0001F41D API V1"
   version: v1
 paths:
   "/api/v1/bookings":
@@ -56,7 +56,7 @@ paths:
           description: successful
   "/api/v1/bookings/user":
     post:
-      summary: get all user booking
+      summary: get all user bookings
       tags:
       - Bookings
       parameters: []
@@ -170,7 +170,7 @@ paths:
               required:
               - username
 servers:
-- url: http://{defaultHost}
+- url: https://{defaultHost}
   variables:
     defaultHost:
-      default: localhost:3000
+      default: "/bee-store.herokuapp.com/"
