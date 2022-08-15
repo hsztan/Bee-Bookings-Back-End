@@ -25,7 +25,7 @@ RSpec.configure do |config|
           url: 'https://{defaultHost}',
           variables: {
             defaultHost: {
-              default: '/bee-store.herokuapp.com/'
+              default: '/'
             }
           }
         }
