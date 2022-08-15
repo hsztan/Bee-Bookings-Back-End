@@ -144,8 +144,9 @@ paths:
             schema:
               type: object
               properties:
-                username:
-                  type: string
+                user:
+                  username:
+                    type: string
               required:
               - username
   "/api/v1/signin":
@@ -165,8 +166,9 @@ paths:
             schema:
               type: object
               properties:
-                username:
-                  type: string
+                user:
+                  username:
+                    type: string
               required:
               - username
 servers:
