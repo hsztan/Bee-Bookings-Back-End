@@ -24,7 +24,7 @@ paths:
                 item_id:
                   type: integer
                 date:
-                  type: date
+                  format: date
                 city:
                   type: string
               required:

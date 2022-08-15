@@ -19,7 +19,7 @@ RSpec.describe 'api/v1/bookings', type: :request do
         properties: {
           user_id: { type: :integer },
           item_id: { type: :integer },
-          date: { type: :date },
+          date: { format: :date },
           city: { type: :string }
         },
         required: %w[user_id item_id date city]
