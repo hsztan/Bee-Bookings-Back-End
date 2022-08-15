@@ -12,7 +12,9 @@ RSpec.describe 'api/v1/sessions', type: :request do
       parameter name: :user, in: :body, schema: {
         type: :object,
         properties: {
-          username: { type: :string }
+          user: {
+            username: { type: :string }
+          }
         },
         required: ['username']
       }
@@ -35,7 +37,9 @@ RSpec.describe 'api/v1/sessions', type: :request do
       parameter name: :user, in: :body, schema: {
         type: :object,
         properties: {
-          username: { type: :string }
+          user: {
+            username: { type: :string }
+          }
         },
         required: ['username']
       }
