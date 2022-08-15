@@ -167,8 +167,10 @@ paths:
               type: object
               properties:
                 user:
-                  username:
-                    type: string
+                  type: object
+                  properties:
+                    username:
+                      type: string
               required:
               - username
 servers:
