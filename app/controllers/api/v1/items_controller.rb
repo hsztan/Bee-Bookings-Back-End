@@ -35,7 +35,11 @@ class Api::V1::ItemsController < ApplicationController
 
   # DELETE /items/1
   def destroy
-    @item.destroy
+    if @item.id in 1..19
+      render json: { message: 'Cannot delete default items' }, status: :unprocessable_entity
+    else
+      @item.destroy
+    end
   end
 
   private
