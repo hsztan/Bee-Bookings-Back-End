@@ -83,5 +83,5 @@
  :description=>"Beelase can solve math problems, he is very talented"}]
 
 bees.each do |bee|
-  Bee.create(bee)
+  Item.create(bee)
 end
