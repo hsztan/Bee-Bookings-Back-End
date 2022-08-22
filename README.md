@@ -39,13 +39,30 @@ rails db:seed
 ```
 
 
-## Author
+## Authors
 
-👤 **Henry Sztanski**
+👤 **Aaron Keegan**
+
+- GitHub: [@AKeeganDev](https://github.com/AKeeganDev)
+- Twitter: [@AkeeganDev](https://twitter.com/AkeeganDev)
+- LinkedIn: [AKeeganDev](https://linkedin.com/in/AKeeganDev)
+
+👤 **Augusto Galindo**
+
+- GitHub: [@jsug9](https://github.com/jsug9)
+- LinkedIn: [Augusto Galindo](https://www.linkedin.com/in/augustogalindo/)
+
+👤 **Emily Robertson**
+
+- GitHub: [@emyrue](https://github.com/emyrue)
+- Twitter: [@EmyrueRobertson](https://twitter.com/EmyrueRobertson)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/emilyruthrobertson/)
+
+👤 **Henry Nawrocki**
 
 - GitHub: [@hsztan](https://github.com/hsztan)
-- Twitter: [@hsztanski](https://github.com/hsztan)
-- LinkedIn: [@henry-nawrocki](https://linkedin.com/in/henry-nawrocki)
+- Twitter: [@hsztanski](https://twitter.com/hsztanski)
+- LinkedIn: [henry-nawrocki](https://linkedin.com/in/henry-nawrocki)
 
 ## 🤝 Contributing
 
